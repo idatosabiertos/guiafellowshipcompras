@@ -1,0 +1,757 @@
+---
+title: 'Guía: Datos abiertos para contrataciones públicas'
+author: "Eugenia Loría"
+date: "2/17/2019"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+    theme: cosmo
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Guía: Datos abiertos para Contrataciones Públicas.
+
+
+## Secciones:
+
+
+[TOC]
+
+
+
+
+---
+
+
+
+# ¿Qué es una guía de datos abiertos?
+
+Este documento es una introducción general a qué son los datos abiertos y está enfocado a los datos relacionados con Contrataciones. Se espera que este documento sirva como guía para la Dirección de Compras Públicas en la implementación de los datos abiertos en SICOP y además sea un incentivo para que la adopción de datos abiertos se difunda entre otras entidades del gobierno. 
+
+Este documento es el producto del _fellowship_ que brindaron la Iniciativa Latinoamericana por los Datos Abiertos ([ILDA](https://idatosabiertos.org)) y Escuela de Datos para Costa Rica. Fue desarrollado en la Dirección General de Administración de Bienes y Contratación Administrativa del Ministerio de Hacienda, durante la segunda mitad del año 2018.
+
+
+# ¿Qué son los datos abiertos?
+
+Los datos se consideran abiertos si pueden **accederse, usarse, modificarse y compartirse libremente para cualquier propósito**, _[estando sujetos a lo sumo a medidas que mantengan su autoría y apertura](https://opendefinition.org/od/2.1/es/)_. 
+
+Para esto se requiere que los datos sean <span style="text-decoration:underline;">legalmente abiertos</span> y <span style="text-decoration:underline;">técnicamente abiertos</span>. <span style="text-decoration:underline;">Legalmente abiertos</span> se refiere a que los datos estén en el dominio público o que tengan restricciones mínimas de uso. <span style="text-decoration:underline;">Técnicamente abiertos</span> significa que los datos se publiquen en un formato que pueda ser leído por máquinas (_machine readable_) y de preferencia en un formato no propietario (formato abierto). (Ref. [Banco Mundial](http://opendatatoolkit.worldbank.org/en/essentials.html))
+
+Ejemplos de datos que **no** son abiertos:
+
+
+
+*   _Si hay que llenar formularios de inscripción para descargar datos, estos no se consideran como datos abiertos en su definición más estricta._
+*   _Si se cobra por descargar ciertos datos, estos tampoco se consideran datos abiertos._
+*   _Las plataformas web donde se den listas de datos disponibles pero que no es posible descargarlos no se consideran como datos abiertos._
+
+
+# ¿Qué características deben tener los datos abiertos?
+
+Hay ocho principios que deben tener los datos abiertos:
+
+
+
+1. **Los datos deben estar completos.**
+
+Deben reflejar la totalidad del tema y en el mayor detalle posible.
+
+
+
+2. **Los datos deben venir de la fuente primaria.**
+
+    Deben obtenerse de la fuente primaria con el más alto nivel de detalle posible.
+
+3. **Los datos deben ser accesibles.**
+
+    Deben estar disponibles para el mayor rango posible de usuarios y propósitos, sin que el usuario tenga que llenar formulario de registro para descargarlos.
+
+4. **Los datos deben ser oportunos y actualizados.**
+
+    Deben de hacerse disponibles lo más pronto posible y mantener un ritmo de actualización que garantice su utilidad.
+
+5. **Los datos deben ser procesables por máquinas.**
+
+    Deben de estar en un formato que permita ser procesados automáticamente.
+
+6. **Los datos no deben ser discriminatorios.**
+
+    Deben estar disponibles para cualquier persona, <span style="text-decoration:underline;">sin requerir autenticaciones o registro de usuarios</span>.
+
+7. **Los datos deben estar en un formato no propietario.**
+
+    Deben de servirse en un formato en el no haya ninguna entidad que tenga control exclusivo sobre el mismo. (Esta guía profundiza sobre los formatos abiertos [más adelante](https://docs.google.com/document/d/1jdcq1ezUvaMpBPneCdFJCR0HZNSLS0JU3L4xW_ENbJc/edit#heading=h.7pmz063whcj8)).
+
+8. **Que estén licenciados en forma abierta.**
+
+    Deben de contar con términos de uso y licenciamiento abierto. (Se detalla [más adelante](https://docs.google.com/document/d/1jdcq1ezUvaMpBPneCdFJCR0HZNSLS0JU3L4xW_ENbJc/edit#heading=h.k7816agqdde)).
+
+
+(Ref. [Guía de datos abiertos en Colombia](http://estrategia.gobiernoenlinea.gov.co/623/articles-8248_Guia_Apertura_Datos.pdf))
+
+Otra característica importante que se menciona en la literatura sobre datos abiertos es que estos deberían de poderse descargar como un mismo conjunto de datos (_single download)_, y también que los datos (filas y columnas) deben estar descritos de manera coherente, con nombres que reflejen de forma clara su contenido, y con metadatos que describan cada categoría de una manera precisa. 
+
+
+# Componente legal de los datos abiertos en Costa Rica
+
+Durante la administración Solís Rivera (2014 - 2018) se publicó el _[Plan de Acción de la Alianza para un Gobierno Abierto](http://gobiernoabierto.go.cr/3pa/)_ en el que se establecieron una serie de compromisos relacionados a la apertura de datos en sectores que se identificaron como prioritarios. Su compromiso número Seis hace referencia a la Implementación de los Estándares de Contrataciones Abiertas al Sistema Integrado de Compras Públicas (SICOP). Con este compromiso se pretende poner  a  disposición  de  la  ciudadanía  los  datos  generados  por  este sistema  en  formato abierto, neutral e interoperable. Adherido a los estándares de contratación abierta de Open Contracting Partnership. La responsabilidad de su implementación recae en la  Dirección General de Bienes y Contratación Administrativa, del Ministerio de Hacienda.
+
+Según este mismo documento, desde  el  2001  la  plataforma  CompraRed  intentó  la  institucionalización  de  un  único sistema. Luego en 2010 se presentó la plataforma Merlink y más recientemente el traslado a la empresa RACSA y la modificación de Merlink hacia SICOP. En este último se pretende lograr la unificación dado que  ya se aprobó una ley (Ley  9395 de septiembre de 2016)  y  Decreto que lo apoyan, con la incorporación de un artículo de transparencia y rendición de cuentas (artículo 40) [http://www.oas.org/juridico/PDFs/mesicic5_cri_ane_16.pdf](http://www.oas.org/juridico/PDFs/mesicic5_cri_ane_16.pdf).  
+
+El cual indica que: "Toda la actividad de contratación regulada por la Ley General de Contratación Administrativa, así como aquella que se regule bajo cualquier régimen especial, deberá realizarse por medio del Sistema digital unificado de compras públicas. Dicho sistema de gestión será único y centralizado y su administración estará a cargo del Poder Ejecutivo por medio de la instancia encargada del desarrollo de Gobierno Digital..."
+
+Al 2018, el estado actual de instituciones que forman parte del SICOP es el siguiente:
+
+
+
+Esto significa que solamente el 64% de las instituciones públicas según el Ministerio de Planificación MIDEPLAN están comprando mediante el SICOP. 
+
+Para fortalecer este sistema es necesario que se incluyan los más  modernos  estándares  en  cuanto  a  transparencia  y  monitoreo  de  la  ciudadanía. Dichos estándares fueron elaborados a nivel internacional por el Open Contracting Partnership.
+
+Lograr esto es relevante para el país en general, específicamente en los siguientes aspectos:
+
+
+
+1. Transparencia y acceso a la información: Facilitación de datos oportunos y de calidad a la ciudadanía.
+2. Participación  ciudadana: para la generación de valor y la toma de decisiones.
+3. Rendición de cuentas: permite acercar a la ciudadanía a las acciones desarrolladas por las instituciones en materia de compras públicas.
+
+Es importante aclarar que no todos los datos públicos son datos abiertos. Como datos públicos entendemos aquellos datos generados por entes estatales en el cumplimiento de sus funciones. A pesar de ser públicos, dadas sus características, la publicación de varios de estos conjuntos de datos estará regulada y/o prohibida por legislación específica. Si los datos son públicos y han sido publicados en algún medio, pero no cumplen con los 8 puntos mencionados en el apartado anterior **no **se consideran datos abiertos.
+
+
+# ¿Cuál es la importancia de los datos abiertos?
+
+Al abrir datos, el gobierno garantiza la transparencia en las acciones que realiza, mejorando de esta manera la confianza de la ciudadanía, a través de diversos mecanismos de rendición de cuentas. Los datos, mediante el uso que le den los distintos grupos de usuarios (investigadores, desarrolladores y otros profesionales) logran tener un valor agregado al generar información que se puede apreciar de manera descriptiva o incluso generando información oculta que se puede revelar mediante el análisis estadístico. Un ejemplo de esto son las aplicaciones que se han desarrollado utilizando datos abiertos y que a la vez visualizan relaciones entre variables. 
+
+Los datos abiertos también ayudan a realizar una gestión con decisiones basadas en datos. Al tener que recopilar, organizar y distribuir los datos, las distintas instituciones involucradas deben de analizarlos tanto de forma retrospectiva como actual, haciendo posible la comparación y evaluación del efecto de distintas acciones realizadas. Los datos abiertos son una herramienta para la planificación, gestión y evaluación de políticas públicas y cualquier otra disposición de las autoridades. 
+
+En el caso de los datos relacionados con las Contrataciones Públicas, se espera que al abrirlos se promueva un diálogo entre los diferentes generadores de datos, tomadores de decisiones, academia y la sociedad civil. De esta manera, poder identificar vacíos de datos y conjuntos de datos importantes que deben generarse y/o abrirse.  Esta comunicación y participación activa entre distintas entidades también servirá para incentivar un mayor uso de los datos, creación de casos de uso que sean de interés para la sociedad y generar el valor agregado de los mismos con su utilización. 
+
+SocialTIC (2018) en su publicación "Datos, mezcales y contratos: proyectos de datos sobre transparencia y contrataciones públicas"  explica algunos ejemplos de casos de uso y beneficios para la sociedad que se pueden obtener al abrir datos de Contrataciones Públicas, como es el caso de Guatemala con periodismo para combatir la corrupción en obras municipales y México con la creación del Índice de Riesgos de Corrupción en el sistema mexicano de contrataciones públicas.
+
+Países como Nepal, Paraguay, México y la Ciudad de Montreal, entre muchos otros, han creado plataformas de datos abiertos de Contrataciones Públicas y han puesto a la disposición de los ciudadanos visualizaciones de los mismos para promover la justicia, prevenir la corrupción y propiciar la transparencia en las contrataciones públicas, así como la eficiencia en los sistemas de contrataciones.
+
+Comprender que los datos de las contrataciones públicas son generados por instituciones públicas, que son públicos y que deben ser abiertos es de gran importancia para tener un sistema de compras transparente. Poner los datos a la disposición de la ciudadanía permite realizar investigación y tener información valiosa para la toma de decisiones en política pública, propiciar la generación de nuevos emprendimientos con estos datos, prevenir la corrupción y promover la justicia.
+
+En el caso de Costa Rica, al abrir datos y generar visualizaciones se podrán realizar diversos análisis a los contratos que permitan, por ejemplo, identificar cuántos contratos se han adjudicado a las PYMES, conocer cuál es el tipo de procedimiento que más se usa para contratar (como Licitación pública o Licitación directa, por mencionar un ejemplo), o determinar cómo es el comportamiento de los contratos en el tiempo y desagregados por institución, etc. Las opciones de análisis son muchas. 
+
+Al conocer los datos existentes, también se pueden proponer nuevas variables por recopilar, como cuáles empresas proveedoras son lideradas por mujeres y tener visibilidad de la situación de éstas, así como el lugar de procedencia de los proveedores, entre otros. 
+
+
+# ¿Qué son los estándares de datos abiertos?
+
+Los estándares de datos abiertos son documentos que establecen requerimientos y especificaciones que deben de tener los conjuntos de datos para hacerse disponibles al público. Un objetivo importante de estos estándares es  —a través de sentar bases comunes—,  hacen compatibles los distintos conjuntos de datos y facilitar su identificación y  análisis.
+
+Comúnmente los estándares describen los datos de un tema en específico. Por ejemplo, existen estándares para datos de contrataciones públicas o para permisos de construcción, y cada uno posee definiciones y características específicas a su campo.
+
+Los estándares para datos abiertos se pueden agrupar en tres categorías:
+
+
+    **Estándares esquemáticos:** Estos definen la estructura de los datos que se van a publicar. Incluyen, por ejemplo, nombres, descripciones, y tipos de datos de las columnas de las tablas. También pueden incluir relaciones entre distintas tablas.
+
+
+    **Estándares semánticos:** En este caso el estándar define la terminología y/o lenguaje de los datos que serán publicados. Un ejemplo de este tipo de estándar es el _Data Catalog Vocabulary_ (DCAT), el cual es un vocabulario que tiene definiciones muy claras del significado de cada uno de sus componentes.
+
+
+    **Estándares atómicos:** Estos definen cómo se deben representar los elementos básicos de los datos en los casos en que haya confusión. Los estándares atómicos pueden definir valores específicos de los datos (cómo se deben de escribir las fechas, por ejemplo), así como también combinaciones de valores. Como muestra, según el estándar [ISO8601](https://es.wikipedia.org/wiki/ISO_8601), la fecha del 18 de octubre del 2018 a las 2 pm debería escribirse como: "2018-10-18T14:00".
+
+(Ref. [Open Data Standards Directory](https://datastandards.directory/glossary) )
+
+En muchos casos los estándares para datos abiertos combinan distintos elementos de los tres tipos mencionados. Por ejemplo, el _Open Data Standards Directory_ menciona que el Estándar de Permisos de Construcción (_BLDS_ por sus siglas en inglés) recomienda publicar dentro del conjunto de datos un elemento llamado _PermitClassMapped_, este elemento debería de contener uno de dos valores: _Residential_ o _Non-Residential_. Más adelante en el documento del estándar se define claramente qué significa cada uno de esos valores.
+
+
+# ¿Qué son las licencias abiertas y por qué son importantes?
+
+Las licencias son herramientas legales que se utilizan para explicar de manera muy clara las condiciones en que se pueden utilizar los datos. Normalmente estas licencias se muestran en una versión resumida con las conceptos principales de la misma, y una versión más extensa donde se da la justificación legal de qué se puede hacer con los datos.
+
+Hay licencias estándar que pueden reutilizarse así como también licencias específicas que ciertos países u organizaciones han desarrollado para casos especiales. Ejemplos de las primeras son la **Creative Commons** (cc) y la **Open Database License** (ODbL); y de las segundas son los términos de uso de los datos del Banco Mundial y la licencia abierta del gobierno de Francia. 
+
+En el ámbito general de los datos abiertos, las licencias más utilizadas son las _Creative Commons_ en sus versiones de **_cc-by_** y **_cc0_**. La licencia **_cc-by_** se refiere a que el usuario de los datos (beneficiario de la licencia) podrá copiar, distribuir, exhibir, representar y hacer derivados de los mismos siempre y cuando reconozca y cite la fuente de los datos de la forma especificada por el autor. La licencia **cc0** o _dedicación a dominio público_ se refiere a que el autor de los datos renuncia a sus derechos de autor, pasando los datos a formar parte del dominio público, permitiendo así que el usuario pueda usarlos libremente. Además de estas, _Creative Commons_ tiene otras variantes que pueden ajustarse a distintas necesidades de los autores de los datos.
+
+(Ref. [Wikipedia](https://es.wikipedia.org/wiki/Licencias_Creative_Commons) - [Creative Commons](https://creativecommons.org))
+
+
+# ¿Qué son los formatos abiertos de datos?
+
+Los datos digitales pueden presentarse en distintos formatos que en muchos casos podemos ver según la terminación de los archivos que los guardan. Por ejemplo, en un archivo llamado _informe.doc_ su terminación _.doc_ nos indica que es un documento en el formato antiguo del programa Microsoft Word. Algunos de estos formatos fueron creados por empresas que limitan su utilización a únicamente los programas creados por ellos mismos, mientras otros de estos formatos fueron creados en estándares abiertos que facilitan su utilización en una mayor variedad de programas. 
+
+Una selección de los formatos abiertos más comúnmente utilizados para documentos de texto, tablas e imágenes es:
+
+**Documentos de texto**
+
+
+    _pdf - _Acrónimo de _portable document file_. Originalmente creado por la empresa Adobe como un formato propietario (cerrado) pero desde la versión 2.0 está estandarizado bajo ISO. Es importante mencionar que un documento PDF puede estar compuesto tanto por imágenes escaneadas de documentos físicos como también por documentos electrónicos. La diferencia entre estos dos es que cuando el PDF se compone de imágenes escaneadas, los datos no pueden extraerse tan fácilmente como cuando el pdf se crea directamente, por ejemplo, desde un documento de Word. En el primer caso sería necesario utilizar un software de reconocimiento de caracteres (OCR) para tratar de recuperar parte del texto, en el segundo caso, los datos podrían extraerse automáticamente a través de seleccionar el texto, copiar y pegar.
+
+
+    _doc - _Formato parte del _Office Open XML_ para documentos de Word desarrollado por Microsoft. Está estandarizado bajo ISO/IEC.
+
+
+    _txt _- Documento de texto codificado bajo algún código no propietario (como por ejemplo ASCII o UTF-8).
+
+**Tablas**
+
+
+    _xlsx - _Documento de hoja de cálculo parte del _Office Open XML _para documentos de Excel desarrollado por Microsoft. Está estandarizado bajo ISO/IEC.
+
+
+    _json -_ Archivo de texto estructurado, acrónimo de _JavaScript Object Notation_ muy popular para el intercambio de datos en aplicaciones web. El formato está estandarizado bajo RFC.
+
+
+    _csv_ - Documento de texto para tablas. En este formato las entradas de cada columna se separan por comas y el texto está codificado en algún código no propietario. Este es el formato abierto preferido para compartir información ordenada como tablas.
+
+**Imágenes**
+
+
+    _GIF_ - Formato originalmente creado por la empresa CompuServe y abierto desde que venció su patente en 2004.
+
+
+    _JPG2000_ - Formato para imágenes de mapas de bits (raster) estandarizado bajo ISO/IEC.
+
+
+    _PNG_ - Formato para imágenes de mapas de bits (raster) estandarizado bajo ISO/IEC.
+
+
+    _SVG_ - Formato para imágenes vectoriales estandarizado bajo W3C.
+
+(Ref. [Wikipedia](https://en.wikipedia.org/wiki/List_of_open_formats))
+
+Distintas recomendaciones importantes sobre los formatos a utilizar, nomenclatura de archivos y demás características de los datos abiertos se puede encontrar en el documento _[Guía para la publicación de datos en formatos abiertos](https://datosgobar.github.io/paquete-apertura-datos/guia-abiertos/)_ de la Secretaría de Modernización del Gobierno de Argentina.
+
+
+# ¿Cómo se evalúan los portales de datos abiertos? 
+
+Existen diversas metodologías y maneras de evaluar un portal de datos abiertos. A continuación compartimos algunas de las más utilizadas.
+
+**Las cinco estrellas de Datos Abiertos**
+
+Una metodología muy utilizada de cinco escalafones que evalúa y propone diferentes medidas que facilitan el acceso, distribución y análisis de los datos abiertos; este sistema se conoce como _[las cinco estrellas de datos abiertos](https://5stardata.info/es/)_. La meta de las instituciones que publican datos abiertos es llegar a tener las cinco estrellas, pero en muchos casos, y dependiendo de las capacidades técnicas de las instituciones, esta meta se desarrollará través de un proceso que puede tomar tiempo.
+
+Según este sistema, portales de datos abiertos se clasifican de la siguiente manera:
+
+
+    **Una estrella**: son datos publicados en la web en cualquier formato y utilizando una licencia abierta. 
+
+
+    **Dos estrellas:** son datos publicados como datos estructurados (tabla de Excel, por ejemplo) en vez de archivos pdfs con tablas o documentos escaneados. 
+
+
+    **Tres estrellas:** son datos publicados en formatos no propietarios (csv en vez de Excel, por ejemplo).
+
+
+    **Cuatro estrellas**: es cuando se utilizan identificadores de recursos uniformes (URIs - _Uniform Resource Identifier_) para los conjuntos de datos. De esta forma los usuarios pueden utilizar una ruta específica para acceder el set de datos requerido.
+
+
+    **Cinco estrellas: **es cuando los datos están enlazados a otros datos, dándoles de esta manera mayor contexto.
+
+Notas:
+
+
+
+*   El sitio de [5* Datos Abiertos](https://5stardata.info/es/#costs-benefits) ofrece un resumen de costos y beneficios de cada una de estas estrellas.
+*   Tim Berners-Lee del _World Wide Web Consortium_ tiene una presentación en YouTube sobre las ventajas de las cinco estrellas de datos abiertos. El video se puede ver en el enlace: ["Open, Linked Data for a Global Community"](https://youtu.be/ga1aSJXCFe0).
+
+**Open Data Certificate**
+
+Otro método para evaluar la calidad de los portales de datos abiertos es el _open data certificate_ creado por el _[Open Data Institute](https://theodi.org)_. Este emplea [una herramienta gratuita](https://certificates.theodi.org/en/) en línea que permite certificar portales de datos abiertos tomando como base el sistema de las cinco estrellas y otros estándares existentes. La herramienta da una calificación basada en cuatro insignias:
+
+
+    **Bronce: **son datos con licencia abierta, disponibles sin restricciones, accesibles y legalmente reutilizables. 
+
+
+    **Plata: **Satisface los requerimientos de la insignia anterior. Los datos también están documentados en un formato legible por computadora (_machine readable_), confiables y ofrecen asistencia continua del creador de los datos a través de un canal de comunicación dedicado.
+
+
+    **Oro:** Satisface los requerimientos de las insignias anteriores. Los datos están publicados en un formato abierto legible por computadora, son actualizados regularmente, ofrece mayor documentación de soporte y contienen declaración de derechos legible por computadora.
+
+
+    **Platino:** Satisface los requerimientos de las insignias anteriores. Los datos tienen documentación de su procedencia legible por computadora, utiliza identificadores únicos y los creadores de los datos tienen un equipo de comunicación ofreciendo asistencia.
+
+
+# Proceso de apertura de datos
+
+Según el Tutorial Datos Abiertos de la Iniciativa Global para la Transparencia Fiscal [http://www.fiscaltransparency.net/resourcesfiles/files/20180706207.pdf](http://www.fiscaltransparency.net/resourcesfiles/files/20180706207.pdf), el Proceso de apertura de datos está conformado por 7 pasos que se detallan a continuación: 
+
+
+
+1. **Escuchar la Demanda: **
+
+Un dato tiene valor en la medida en que se usa.
+
+Es importante preguntarle a los distintos actores de la sociedad civil, academia, sector privado, sector público y potenciales usuarios:
+
+*   ¿Qué tipo de datos despiertan su interés?
+*   ¿Quiénes podrían ser las personas/organizaciones usuarias?
+*   ¿Con qué frecuencia serán utilizados los datos?
+*   ¿En qué formato les sería más sencillo utilizarlos?
+*   ¿Cuánto acceso y qué habilidades digitales tienen las personas/organizaciones identificadas?
+*   ¿Qué objetivos tienen estas personas/organizaciones en relación con los datos de compras públicas?
+*   ¿Cuánto saben del ciclo de compras públicas?
+*   ¿Podemos identificar algún patrón sociodemográfico en las personas/organizaciones usuarias?
+2. ** Identificar fuente y formato de datos**
+*   Trabajar en su apertura implica análisis, procesamiento y creación de nuevos procesos para garantizar la sostenibilidad.
+3. **Iniciar su depuración y limpieza**
+*   Es importante revisar la calidad de la información que se publica.
+*   Con datos sucios, su consulta y procesamiento se convierte en una tarea complicada.
+4. **Estándares nacionales o internacionales de referencia**
+*   La apertura de datos debe ir en concordancia con estándares ya sean nacionales o internacionales, esto permitirá que los datos puedan ser comparables y compatibles con otros contextos.
+5. **Sostenibilidad de la información**
+*   La apertura de información supone la ejecución un proceso constante que considera la realización de diferentes tareas y  actividades.
+6. **Licencias de uso**
+*    Las entidades generadoras de datos deben estipular las licencias de uso que atenderán el aspecto ético y legal de la información.
+7. **Promover el uso de la información**
+*   Garantizar su difusión y acceso mediante estrategias de comunicación y acciones que faciliten la interacción, vinculación y participación de la sociedad en el uso de los datos publicados.
+*   Desarrollar estrategias de consulta y difusión de la información que permitan compartir experiencias de éxito y desarrollo de capacidades
+
+
+# Contrataciones Abiertas: un proceso
+
+El [Estándar de Datos de Contrataciones Abiertas ](https://www.open-contracting.org/implement/#/ ) (OCDS por sus siglas en inglés) proporciona un esquema común para publicar datos estructurados. Por ello, garantiza que los datos de contrataciones y los documentos que se publican cumplan con buenas prácticas globales y sean adecuados para satisfacer las necesidades de diferentes usuarios de datos abiertos.
+
+El proceso de implementación del Estándar se puede resumir en siete pasos que han ayudado a implementadores de distintas partes del mundo a publicar datos de contrataciones y medir su impacto. Este proceso no es lineal, por lo que la retroalimentación, el aprendizaje y la iteración son características constantes de su desarrollo. 
+
+Los aspectos más importantes de cada uno de los pasos de este proceso iterativo se describen a continuación:
+
+
+
+1. **Diseñar.** Establecer metas, conformar un equipo y comprometerse con una visión compartida.
+    1. Establecer metas y prioridades.
+    2. Construir un equipo de trabajo.
+    3. Identificar y Relacionarse con las personas clave "stakeholders".
+    4. Compromiso con una visión compartida.
+2. ** Mapear**. Identificar las necesidades de sus usuarios y mapearlos contra los datos clave y documentos requeridos por el estándar de datos de contrataciones abiertas.
+    5. Mapear el panorama político.
+    6. Mapear el sistema.
+    7. Mapear a nivel de campo/variable de interés.
+    8. Localización.
+    9. Desarrollar un plan de implementación.
+3. **Construir. ** Preparar procesos de contratación con alta calidad de los datos estandarizados. 
+    10. Seleccionar su arquitectura.
+    11. Crear o comisionar soporte de estándar de contrataciones abiertas.
+    12. Crear extensiones de datos basadas en el estándar.
+    13. Realizar chequeos estructurales.
+    14. Considerar como serán accesados los datos.
+4. **Publicar. ** Publicar los datos y documentos según el estándar con una licencia de datos abiertos en línea con una política clara de publicación.
+    15. Compartir la política de publicación.
+    16. Aplicar una licencia abierta.
+    17. Proporcionar exportaciones masivas, APIs e interfaces.
+    18. Mantener los datos actualizados.
+5. **Usar.** Visualizar. Analizar. Comparar. Hacer la diferencia.
+    19. Encontrar herramientas.
+    20. Visualizar.
+    21. Analizar.
+    22. Comparar.
+6. **Evaluar.** Mejorar la calidad de los datos y su uso.
+    23. Confirmar controles estructurales.
+    24. Revisar la calidad de los datos.
+    25. Revisar su uso.
+    26. Recopilar datos de referencia y de impacto.
+7. **Aprender y Compartir.** Ajustar e iterar.
+    27. Medir y reflexionar.
+    28. Compartir historias.
+    29. Compartir código.
+    30. Compartir sugerencias.
+
+
+# Ejemplos de plataformas de datos abiertos y Compras Públicas
+
+**Portal Público de la Dirección Nacional de Contrataciones Públicas de la República del Paraguay.**
+
+
+    **[https://www.contrataciones.gov.py/datos/visualizaciones](https://www.contrataciones.gov.py/datos/visualizaciones) **
+
+Portal con datos abiertos, diccionarios de datos y  visualizaciones interactivas de la Dirección Nacional de Contrataciones Públicas de Paraguay. Fue creado para promover el acceso a los datos de las contrataciones públicas e impulsar el desarrollo de las herramientas creativas para atraer y servir a los ciudadanos. Con este portal se pretende fomentar la transparencia, la eficiencia, la participación ciudadana y el desarrollo económico al exponer el trabajo que se realiza en las distintas instituciones y muestra cómo se gestionan e invierten los recursos públicos.
+
+**Mexico Procurement analytics.**
+
+
+    **[http://mexico.procurement-analytics.org/#/about](http://mexico.procurement-analytics.org/#/about)**
+
+Este tablero (_dashboard_) provee un análisis de datos públicos de contrataciones de México. Fue financiado por el Banco Mundial y diseñado por Development Seed. El _dashboard_ usa datos públicos disponibles en CompraNet, el sitio web centralizado de contrataciones públicas.
+
+**Visualización de contratos de la Ciudad de Montreal**
+
+
+    **[https://ville.montreal.qc.ca/vuesurlescontrats/apropos.html](https://ville.montreal.qc.ca/vuesurlescontrats/apropos.html)<span style="text-decoration:underline;">  </span>**
+
+Este portal permite visualizar los contratos de la Ciudad de Montreal, según los filtros que se seleccionan en línea, por ejemplo fecha, tipo de contrato, autorizado por, montos, etc.
+
+**Iniciativa para la Transparencia en la Contratación Pública de Nepal.**
+
+	[http://ppip.gov.np/](http://ppip.gov.np/)
+
+Este portal consiste en una base de datos centralizada de contrataciones públicas del sistema e-GP System al alcance del público en general.  Es una iniciativa pionera de la Oficina de Monitoreo de Contrataciones Públicas de Nepal (PPMO) en colaboración con el Open Contracting Partnership (OCP), cuyo objetivo es diseminar datos públicos de contrataciones de acuerdo con el Estándar de Contrataciones Abiertas (OCDS). El proyecto busca facilitar datos para promover su uso por parte de actores sociales clave en Nepal, y así, aumentar la justicia, la integridad y la efectividad del sistema de contrataciones públicas. 
+
+**Nuevo Aeropuerto Internacional de la Ciudad de México**
+
+[https://datos.gob.mx/nuevoaeropuerto/](https://datos.gob.mx/nuevoaeropuerto/)
+
+Este portal provee datos abiertos y visualizaciones de Procedimientos y destinos de Contrataciones públicas.
+
+**Portal de Datos Abiertos del Gobierno de México**
+
+**[https://datos.gob.mx/](https://datos.gob.mx/)**
+
+Provee datos de 39,738 datos de 277 instituciones del Gobierno de México. Incluye visualizaciones y estudios relacionados con los datos abiertos.
+
+Para el caso de Costa Rica, y aunque no son datos estrictamente relacionados con Contrataciones Públicas, cabe resaltar los esfuerzos que se han realizado con las plataformas de datos abiertos del [Gobierno de Costa Rica](http://datosabiertos.presidencia.go.cr/home) y [Poder Judicial](http://datosabiertospj.eastus.cloudapp.azure.com), además de la infraestructura nacional de datos espaciales llamada _[Sistema Nacional de Información Territorial (SNIT)](http://www.snitcr.go.cr)_.
+
+
+# Recomendaciones: Datos para abrir y su disponibilidad en Costa Rica
+
+Esta es una lista general elaborada en base a  la información disponible en el SICOP, consideraciones del Estándar de Datos de Contrataciones Abiertas y ejemplos de otros portales de datos abiertos. Dichas recomendaciones se enviaron mediante oficio a RACSA, la institución encargada de la administración y publicación de datos. 
+
+Para la publicación, se recomiendan conjuntos de datos en formatos CSV y XLS con sus respectivos diccionarios de datos o metadatos.
+
+**Conjunto de datos - Contratos Públicos Adjudicados**
+
+A continuación el diccionario de las variables a publicar inicialmente:
+
+
+<table>
+  <tr>
+   <td><strong>Variable</strong>
+   </td>
+   <td><strong>Descripción</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>PARTIDA
+   </td>
+   <td>Número de partida con la que fue clasificado el bien o servicio que se está comprando.
+   </td>
+  </tr>
+  <tr>
+   <td>MONTO_LINEA
+   </td>
+   <td>Monto total de los productos o servicios que se está contratando en la línea en específico.
+   </td>
+  </tr>
+  <tr>
+   <td>POSEE_MODIFICACIONES
+   </td>
+   <td>Indicador de si el contrato posee modificaciones o no.
+   </td>
+  </tr>
+  <tr>
+   <td>CEDULA_INSTITUCION
+   </td>
+   <td>Cédula jurídica de la institución que generó el contrato.
+   </td>
+  </tr>
+  <tr>
+   <td>DESCRIPCION
+   </td>
+   <td>Descripción del objeto contractual del contrato.
+   </td>
+  </tr>
+  <tr>
+   <td>NUMERO_PROCEDIMIENTO
+   </td>
+   <td>Número de procedimiento que generó el contrato.
+   </td>
+  </tr>
+  <tr>
+   <td>NUMERO_CONTRATO
+   </td>
+   <td>Número de contrato, esta numeración es única por institución y año.
+   </td>
+  </tr>
+  <tr>
+   <td>ESTADO
+   </td>
+   <td>Estado en el que se encuentra el contrato, para efectos del reporte solo se incluyeron los contratos que ya han sido notificados.
+   </td>
+  </tr>
+  <tr>
+   <td>VIGENCIA_CONTRATO
+   </td>
+   <td>Periodo de vigencia del contrato en años o meses.
+   </td>
+  </tr>
+  <tr>
+   <td>TIPO_PROCEDIMIENTO
+   </td>
+   <td>Tipo de procedimiento que dio origen al contrato.
+   </td>
+  </tr>
+  <tr>
+   <td>CLASIFICACION_OBJETO
+   </td>
+   <td>Clasificación del objeto de compra, puede ser bienes, servicios u obras.
+   </td>
+  </tr>
+  <tr>
+   <td>TIPO_MODALIDAD
+   </td>
+   <td>Modalidad en la que se ejecutó el proceso de compra.
+   </td>
+  </tr>
+  <tr>
+   <td>TIPO_MONEDA
+   </td>
+   <td>Moneda en la que fue elaborado el contrato.
+   </td>
+  </tr>
+  <tr>
+   <td>MONTO
+   </td>
+   <td>Monto total por el que se contrato el proveedor.
+   </td>
+  </tr>
+  <tr>
+   <td>CEDULA_CONTRATISTA
+   </td>
+   <td>Cédula física y/o jurídica del proveedor que fue contratado.
+   </td>
+  </tr>
+  <tr>
+   <td>CONTRATISTA
+   </td>
+   <td>Nombre del proveedor que fue contratado.
+   </td>
+  </tr>
+  <tr>
+   <td>FECHA_NOTIFICACION
+   </td>
+   <td>Fecha en que fue notificado el contratista para que inicie la ejecución del contrato.
+   </td>
+  </tr>
+  <tr>
+   <td>FIRMA_CONTRATO
+   </td>
+   <td>Fecha en que el contrato fue firmado por el contratista (En caso de que aplique).
+   </td>
+  </tr>
+</table>
+
+
+**Conjunto de datos - Proveedores**
+
+
+<table>
+  <tr>
+   <td><strong>Variable</strong>
+   </td>
+   <td>
+    <strong>Descripción</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>CEDULA
+   </td>
+   <td>
+    Identificación
+   </td>
+  </tr>
+  <tr>
+   <td>PAIS_ORIGIEN
+   </td>
+   <td>
+    País de origen del proveedor
+   </td>
+  </tr>
+  <tr>
+   <td>NOMBRE
+   </td>
+   <td>
+    Nombre de la empresa
+   </td>
+  </tr>
+  <tr>
+   <td>TIPO
+   </td>
+   <td>
+    Clasificación de empresa según tamaño
+   </td>
+  </tr>
+  <tr>
+   <td>UBICACIÓN
+   </td>
+   <td>
+    Ubicación de la empresa según provincia
+   </td>
+  </tr>
+  <tr>
+   <td>CODIGO_POSTAL
+   </td>
+   <td>
+    Código postal de la empresa
+   </td>
+  </tr>
+  <tr>
+   <td>DIRECCION
+   </td>
+   <td>
+    Dirección de las oficinas de la empresa
+   </td>
+  </tr>
+</table>
+
+
+Adicionalmente, se recomienda la publicación del Catálogo de Productos y Servicios existente.
+
+
+# 
+
+
+## Otros conceptos importantes / glosario
+
+
+
+*   API: Acrónimo de _application programming interface_. Son un conjunto de herramientas de programación que facilitan la comunicación entre softwares. A través de un API se puede acceder directamente desde un programa de análisis de datos, app o página web los datos de una plataforma de datos abiertos.
+*   CKAN: Acrónimo de _Comprehensive Knowledge Archive Network_. Es una plataforma web de código abierto que se utiliza para catalogar, guardar y distribuir datos abiertos. A pesar de que existen otras plataformas que cumplen esa misma función, CKAN es muy popular entre catálogos de datos abiertos gubernamentales como los de los gobiernos del Reino Unido, Estados Unidos y Australia. [La plataforma de datos abiertos del Poder Judicial de Costa Rica](http://datosabiertospj.eastus.cloudapp.azure.com/) utiliza CKAN.
+*   Metadatos: Los metadatos o "datos de los datos" es la información que en términos generales nos indica de donde viene un conjunto de datos y sus características. Existen esquemas preestablecidos que indican qué información debe incluirse en los metadatos de cierto tipo de datos. Por ejemplo para datos geográficos existe un esquema estandarizado (ISO 19115:2003) que nos indica qué información debemos adjuntar al conjunto de datos para garantizar su usabilidad. [El artículo de Wikipedia sobre metadatos](https://en.wikipedia.org/wiki/Metadata_standard) da una guía sobre qué estándares y esquemas existen para distintos tipos de datos.
+*   SICOP: Sistema de Compras Públicas de Costa Rica. 
+
+
+# Referencias
+
+
+5 estrellas de Datos Abiertos. (s. f.). Recuperado 27 de diciembre de 2018, de[ http://5stardata.info/es/](http://5stardata.info/es/)
+
+
+Creative Commons. (s. f.). Recuperado 27 de diciembre de 2018, de[ https://creativecommons.org/](https://creativecommons.org/)
+
+
+Data Bootcamp. Datos abiertos de Contrataciones Públicas de Paraguay. Recuperado el 7 de enero 2019 de: [https://databootcamp.tedic.org/datos-abiertos-de-la-direccion-nacional-de-contrataciones-publicas/](https://databootcamp.tedic.org/datos-abiertos-de-la-direccion-nacional-de-contrataciones-publicas/)
+
+
+Definición de Conocimiento Abierto - Open Definition - Defining Open in Open Data, Open Content and Open Knowledge. (s. f.). Recuperado 27 de diciembre de 2018, de[ https://opendefinition.org/od/2.1/es/](https://opendefinition.org/od/2.1/es/)
+
+Estándar de Open Contracting Partnership. Recuperado el 7 de enero del 2019, de:     [https://www.open-contracting.org/implement/#/](https://www.open-contracting.org/implement/#/) 
+
+
+Gobierno de la República de Colombia. (2016, junio). Guía de Datos Abiertos en Colombia. Recuperado de[ http://estrategia.gobiernoenlinea.gov.co/623/articles-8248_Guia_Apertura_Datos.pdf](http://estrategia.gobiernoenlinea.gov.co/623/articles-8248_Guia_Apertura_Datos.pdf)
+
+
+III Plan de Acción. (2017, junio 12). Recuperado 27 de diciembre de 2018, de[ http://gobiernoabierto.go.cr/3pa/](http://gobiernoabierto.go.cr/3pa/)
+
+
+Open Data Essentials | Data. (2018, diciembre 6). Recuperado 27 de diciembre de 2018, de[ http://opendatatoolkit.worldbank.org/en/essentials.html](http://opendatatoolkit.worldbank.org/en/essentials.html)
+
+
+Open Data Standards Directory. (s. f.). Recuperado 27 de diciembre de 2018, de[ https://datastandards.directory/glossary  ](https://datastandards.directory/glossary)
+
+
+Paquete de Apertura de Datos de la República Argentina. (s. f.). Recuperado 27 de diciembre de 2018, de[ https://datosgobar.github.io/paquete-apertura-datos/](https://datosgobar.github.io/paquete-apertura-datos/)
+
+
+Social TIC (2018).  Datos, mezcales y contratos: proyectos de datos sobre transparencia y contrataciones públicas. (s.f.) Recuperado 31 de diciembre de 2018, de [https://socialtic.org/blog/datos-mezcales-y-contratos-proyectos-de-datos-sobre-transparencia-y-contrataciones-publicas/](https://socialtic.org/blog/datos-mezcales-y-contratos-proyectos-de-datos-sobre-transparencia-y-contrataciones-publicas/) 
+
+
+Transparencia de las contrataciones administrativas por medio de la reforma del Artículo 40 de la ley N.º 7494, Contratación Administrativa, de 2 de mayo de 1995, y sus reformas. Recuperado el 7 de enero 2018 en: [http://www.oas.org/juridico/PDFs/mesicic5_cri_ane_16.pdf](http://www.oas.org/juridico/PDFs/mesicic5_cri_ane_16.pdf) 
+
+
+The ODI – Open Data Institute. (s. f.). Recuperado 27 de diciembre de 2018, de[ https://theodi.org/](https://theodi.org/)
+
+
+Toolkit: Promoción de la mujer en las compras públicas. BID. Recuperado el 7 de enero 2019, de: 
+
+
+[https://webimages.iadb.org/publications/spanish/document/Toolkit-Promoci%C3%B3n-de-la-mujer-en-las-compras-p%C3%BAblicas.pdf](https://webimages.iadb.org/publications/spanish/document/Toolkit-Promoci%C3%B3n-de-la-mujer-en-las-compras-p%C3%BAblicas.pdf) 
+
+
+Tutorial Datos Abiertos. Transparencia Presupuestaria. Observatorio del gasto. Global Initiative for fiscal transparency. [http://www.fiscaltransparency.net/resourcesfiles/files/20180706207.pdf](http://www.fiscaltransparency.net/resourcesfiles/files/20180706207.pdf) 
+
+
+
+# **Anexo:  Análisis y visualizaciones**
+
+En base a los datos a los que se pudo acceder, se realizaron análisis descriptivos de los conjuntos de datos y ejercicios de visualización que permitieran explorar maneras de presentar la información a diferentes usuarios. 
+
+Es importante anotar que, hasta el cierre del 2018, en el SICOP estaban registradas únicamente el 64% de las instituciones públicas de Costa Rica. Debido a esto, sus conjuntos de datos abiertos y las visualizaciones producidas no representan el total de las compras públicas de Costa Rica.  
+
+**Conjunto de datos - Contratos Adjudicados**
+
+
+    **Desagregación de datos:**
+
+
+
+*   **Por Objeto Contractual**: Bienes y Servicios, Obra Pública.
+*   **Por** **Tipo de procedimiento**: Contratación Directa, Contratación Especial, Licitación Abreviada, Licitación Pública Nacional, Procedimiento por principio. 
+*   **Por Institución**: Instituciones Públicas de Costa Rica registradas en el SICOP.
+
+**Anotaciones: **
+
+
+    Para las visualizaciones de este conjunto de datos, es importante separar las categorías "Bienes y Servicios" de "Obra Pública" ya que debido a la diferencia en el rango de montos comunes en ambas, lo cual genera una distorsión visual de la escala. 
+
+**Obra pública: Contratos adjudicados por tipo de procedimiento (2016-2018). **
+
+
+Este gráfico muestra cómo la mayoría de contratos se adjudican mediante Contratación Directa (CD), seguido de la Licitación Abreviada (LA). Por debajo, los contratos hechos por medio de Licitación Pública Nacional (LPN). 
+
+Este tipo de gráfico permite observar cierta estacionalidad en la cantidad de contratos adjudicados al fin de cada uno de los últimos 3 años (octubre a diciembre). Se observa un pico de contrataciones públicas en el mes de julio del año 2018, lo cual puede promover una investigación mayor al respecto.
+
+**Bienes y Servicios: Contratos adjudicados por tipo de procedimiento (2016-2018). **
+
+
+Los procedimientos más recurrentes para la contratación pública son la Contratación Directa (CD), la Licitación Abreviada (LA) y la Licitación Pública Nacional (LPN).
+
+
+
+En la gráfica se puede ver claramente como la cantidad de contratos aumenta conforme pasa el año, tomando su punto máximo en los meses de octubre a diciembre y descendiendo significativamente en enero de cada año.
+
+**Conjunto de datos - Proveedores**
+
+
+
+*   Total de Proveedores registrados en el SICOP distribuidos por provincia de ubicación:  
+
+
+
+
+
+
+
+Esta gráfica muestra que la gran mayoría de proveedores están ubicados en la capital de Costa Rica, San José, seguido por Alajuela y Heredia. Se muestra claramente la poca cantidad de proveedores que se encuentran fuera del Gran Área Metropolitana.
+
+Los proveedores según Tipo o clasificación según provincia pueden ser observados de la siguiente manera:
+
+
+Otra forma de visualizar información es mediante mapas. En el siguiente mapa se puede apreciar la ubicación de los microemprendedores en el país:
+
+La provincia que tiene mayor cantidad de microemprendedores es San José. En azul se muestran las provincas que forman parte del Gran Área Metroplitana.  
+
+
+Se aprecia que la distribución por tipo de empresa en las distintas provincias es similar. El porcentaje mayor es el que corresponde a la Pequeña empresa (cerca del 35%), seguido de los microemprendedores (cercanos al 30%), en tercer lugar las grandes empresas (cercanas al 20%) y por último la Mediana empresa (cerca del 15%). Es decir, en general, los microemprendedores y pequeñas empresas representan cerca del 60% de los proveedores en todas las provincias.
+
+
+Donde se ubican más empresas grandes como proveedores es en San José, y a la vez, es la provincia con un porcentaje menor de microemprendedores como proveedores, comparado con las demás provincias. Cartago muestra un mayor porcentaje de microemprendedores y en Guanacaste el porcentaje mayor de proveedores lo representan pequeñas empresas. 
+
+
+# Recomendaciones: Otros datos de Compras públicas que se pueden recopilar
+
+Se sugiere recopilar datos desagregados sobre la ubicación de los proveedores a mayor detalle, como coordenadas GPS de los proveedores y las diferentes unidades de compra. Esto permitiría obtener visualizaciones más precisas y permitiría un análisis de eficiencia sobre a dónde hay que brindar los bienes o servicios contratados. 
+
+De acuerdo con el Toolkit: Promoción de la mujer en las compras públicas del BID, [https://publications.iadb.org/en/publication/toolkit-promocion-de-la-mujer-en-las-compras-publicas](https://publications.iadb.org/en/publication/toolkit-promocion-de-la-mujer-en-las-compras-publicas),  es importante crear política pública relacionada con el impulso al emprendimiento liderado por mujeres. Según este Kit, "La contratación pública se ha utilizado como un instrumento para promover objetivos socioeconómicos, ofreciendo una vía óptima para combatir la pobreza y promover el crecimiento económico a nivel país. El empoderamiento económico de la mujer no es una excepción; sin embargo, su acceso a estas oportunidades del mercado no ha resultado una tarea fácil. Las mujeres empresarias se enfrentan a obstáculos complejos a la hora de acceder a oportunidades económicas, encontrando barreras que van desde limitantes legales hasta pautas socioculturales, las cuales deben ser afrontadas por los gobiernos mediante la promoción de espacios de participación y la implementación de iniciativas dirigidas a reducir las brechas de género." 
+
+Actualmente el SICOP no recopila datos relacionados con indicadores de la participación de mujeres en las empresas proveedoras. La recolección de estos datos podría constituir una línea base que permita visualizar el estado actual de participación, nivel de contratos adjudicados y otros cálculos que permitan medir el impacto de programas o iniciativas.
+
+
+    
+
+
+# Agradecimientos 
+
+Banco Interamericano de Desarrollo
+
+Social TIC
+
+ILDA
+
+Ministerio de Hacienda 
+
+Dirección General de Administración de Bienes y Contratación Administrativa
+
+Abriendo Datos Costa Rica
+
+Comision Nacional Datos Abiertos CR [http://gobiernoabierto.go.cr/estrategia/cnda/](http://gobiernoabierto.go.cr/estrategia/cnda/) 
+
+Fundación Avina
